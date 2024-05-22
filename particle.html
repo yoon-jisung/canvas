@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"
+      integrity="sha512-WoO4Ih0CDOSLYafy22wZD/mcJ7k0ESLqtQsFa6zFKnEUrbtuGU+GkLtVhgt93xa2qewG5gKEC6CWlN8OaCTSVg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Document</title>
     <style>
       html,
@@ -14,7 +20,6 @@
       }
       canvas {
         filter: url("#gooey");
-        background-color: rgb(251, 251, 251);
       }
     </style>
   </head>
@@ -23,24 +28,20 @@
     <svg>
       <defs>
         <filter id="gooey">
-          <feGaussianblur
-            stdDeviation="1"
+          <feGaussianBlur
+            stdDeviation="10"
             in="SourceGraphic"
             result="blur1"
-          ></feGaussianblur>
+          ></feGaussianBlur>
           <feColorMatrix
             in="blur1"
             mode="matrix"
-            values="
-              1 0 0 0 0
-              0 1 0 0 0
-              0 0 1 0 0
-              0 0 0 1 0
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -3
             "
           />
         </filter>
       </defs>
     </svg>
-    <script type="module" src="particle.js"></script>
+    <script type="module" src="dotGUI.js"></script>
   </body>
 </html>
